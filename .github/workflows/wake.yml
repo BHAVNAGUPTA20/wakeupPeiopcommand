@@ -2,12 +2,16 @@ name: Wake Streamlit App
 
 on:
   schedule:
-    - cron: "0 */4 * * *"   # every 4 hours
-  workflow_dispatch:         # allow manual trigger
+    - cron: "0 */4 * * *"
+  workflow_dispatch:
 
 jobs:
   wake:
     runs-on: ubuntu-latest
+
+    env:
+      STREAMLIT_APP_URL: "https://periop-command.streamlit.app/"
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
